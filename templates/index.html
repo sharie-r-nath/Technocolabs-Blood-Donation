@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h2>Predict Blood Donation Expectancy</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<p>
+		  <label for="recency">Recency: </label>	
+    	  <input name="recency" type="text" required="required" placeholder="Recency" title="Recency" />
+   	  </p>
+    	<p>
+		  <label for="frequency">Frequency: </label>	
+    	  <input name="frequency" type="text" required="required" placeholder="Frequency" title="Frequency" />
+   	  </p>
+    	<p>
+		  <label for="time">Time(months): </label>
+    	  <input type="text" name="time" placeholder="Time(months)" required="required" />
+   	  </p>
+    	<p>
+		  <label for="monetary">Monetary: </label>	
+    	  <input type="text" name="monetary" placeholder="Monetary" required="required" />
+    	  
+  	  </p>
+    	<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
