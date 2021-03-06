@@ -1,34 +1,48 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
-<meta charset="utf-8">
-<title>index</title>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
 </head>
 
 <body>
-<p>&nbsp;</p>
-<p>
-<h2>Predicting Blood Donation Future Expectancy</h2>
-</p>
+ <div class="login">
+	<h2>Predict Blood Donation Expectancy</h2>
 
-	
-<p>
-  <label for="textfield3">Recency: </label>
-  <input type="text" name="textfield3" id="textfield3">
-  <label for="textfield">Frequency: </label>
-  <input type="text" name="textfield" id="textfield">
-  <label for="textfield4">Time(months): </label>
-  <input type="text" name="textfield4" id="textfield4">
-  <label for="textfield2"> Monetary:</label>
-  <input type="text" name="textfield2" id="textfield2">
-&nbsp;</p>
-<p>
-  <input type="button" name="button" id="button" value="Predict">
-	<br>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<p>
+		  <label for="recency">Recency: </label>	
+    	  <input name="recency" type="text" required="required" placeholder="Recency" title="Recency" />
+   	  </p>
+    	<p>
+		  <label for="frequency">Frequency: </label>	
+    	  <input name="frequency" type="text" required="required" placeholder="Frequency" title="Frequency" />
+   	  </p>
+    	<p>
+		  <label for="time">Time(months): </label>
+    	  <input type="text" name="time" placeholder="Time(months)" required="required" />
+   	  </p>
+    	<p>
+		  <label for="monetary">Monetary: </label>	
+    	  <input type="text" name="monetary" placeholder="Monetary" required="required" />
+    	  
+  	  </p>
+    	<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
    <br>
-    Blood Donation Expectancy : 
+   <br>
+   {{ prediction_text }}
 
-</p>
-<p>&nbsp;</p>
+ </div>
+
+
 </body>
 </html>
