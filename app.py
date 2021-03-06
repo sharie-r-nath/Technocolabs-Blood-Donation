@@ -24,9 +24,8 @@ def predict():
     else:
             output="NO"
 
-    return render_template('index.html', prediction_text="Blood Donation Expectancy : " + output))
+    return render_template('index.html', prediction_text="Blood Donation Expectancy : " + output)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
-© 2021 GitHub, Inc.
