@@ -1,0 +1,41 @@
+!DOCTYPE html
+html 
+!--From httpscodepen.iofrytylerpenEGdtg--
+head
+  meta charset=UTF-8
+  titleML APItitle
+  link href='httpsfonts.googleapis.comcssfamily=Pacifico' rel='stylesheet' type='textcss'
+link href='httpsfonts.googleapis.comcssfamily=Arimo' rel='stylesheet' type='textcss'
+link href='httpsfonts.googleapis.comcssfamily=Hind300' rel='stylesheet' type='textcss'
+link href='httpsfonts.googleapis.comcssfamily=Open+Sans+Condensed300' rel='stylesheet' type='textcss'
+  
+head
+
+body
+ div class=login
+	h1Predict Salary Analysish1
+
+     !-- Main Input For Receiving Query to our ML --
+    form action={{ url_for('predict')}}method=post
+    	input type=text name=recency placeholder=Recency required=required 
+        input type=text name=frequency placeholder=Frequency required=required 
+		input type=text name=time placeholder=Time(months) required=required 
+                                   input type=text name=monetary placeholder=Monetary required=required 
+
+        button type=submit class=btn btn-primary btn-block btn-largePredictbutton
+    form
+
+   br
+   br
+   {{ prediction_text }}
+
+ div
+
+
+body
+html
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
