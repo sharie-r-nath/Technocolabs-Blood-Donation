@@ -12,10 +12,10 @@ features = tpot_data.drop('target', axis=1).values
 training_features, testing_features, training_target, testing_target = \
             train_test_split(features, tpot_data['target'].values, random_state=42)
 
-# Average CV score on the training set was:0.7965080508050806
+# Average CV score on the training set was:0.8044561824729893
 exported_pipeline = make_pipeline(
+    PCA(iterated_power=6, svd_solver="randomized"),
     PolynomialFeatures(degree=2, include_bias=False, interaction_only=False),
-    PCA(iterated_power=9, svd_solver="randomized"),
     LogisticRegression(C=10.0, dual=False, penalty="l1")
 )
 
